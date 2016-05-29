@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ImagePagerActivity" />
-        <activity android:name=".ImageDetailFragment"></activity>
+        <activity android:name=".ImageDetailFragment" />
+        <activity android:name=".activity.PhotoViewBrowserActivity"></activity>
     </application>
 
 </manifest>
