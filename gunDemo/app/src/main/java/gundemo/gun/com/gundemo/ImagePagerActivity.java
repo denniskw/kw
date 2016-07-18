@@ -11,13 +11,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import gundemo.gun.com.gundemo.view.HackyViewPager;
+
 
 public class ImagePagerActivity extends FragmentActivity {
     private static final String STATE_POSITION = "STATE_POSITION";
     public static final String EXTRA_IMAGE_INDEX = "image_index";
     public static final String EXTRA_IMAGE_URLS = "image_urls";
 
-//    private HackyViewPager mPager;
+    private HackyViewPager mPager;
     private int pagerPosition;
     private TextView indicator;
 
@@ -33,7 +35,7 @@ public class ImagePagerActivity extends FragmentActivity {
         urls.add("http://img.gunlei.com/gld201605031619414190.png");
         urls.add("http://img.gunlei.com/gld201605031619409710.png");
         urls.add("http://img.gunlei.com/gld201605031619409250.png");
-//        mPager = (HackyViewPager) findViewById(R.id.pager);
+        mPager = (HackyViewPager) findViewById(R.id.pager);
         ImagePagerAdapter mAdapter = new ImagePagerAdapter(getSupportFragmentManager(), urls);
 
 
@@ -43,13 +45,13 @@ public class ImagePagerActivity extends FragmentActivity {
             pagerPosition = savedInstanceState.getInt(STATE_POSITION);
         }
 
-//        mPager.setCurrentItem(pagerPosition);
+        mPager.setCurrentItem(pagerPosition);
     }
 
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//        outState.putInt(STATE_POSITION, mPager.getCurrentItem());
-//    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(STATE_POSITION, mPager.getCurrentItem());
+    }
 
     private class ImagePagerAdapter extends FragmentStatePagerAdapter {
 
